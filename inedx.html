@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajesh Kumar Tharu | Django Backend & ERP Developer Nepal</title>
+  <meta name="description" content="Rajesh Kumar Tharu, Django Developer in Nepal. Specializes in ERP system development, custom business websites, and backend solutions for small businesses. BSc (Hons) IT.">
+  <meta name="keywords" content="Django Developer Nepal, ERP System Developer, Python Developer, Backend Developer Nepal, Custom Website Nepal, PostgreSQL Developer">
+  <meta name="author" content="Rajesh Kumar Tharu">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts - Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body { 
+      font-family: 'Inter', sans-serif; 
+      scroll-behavior: smooth; 
+      background: #0b0f17;
+    }
+    a, button { 
+      transition: all 0.2s ease; 
+    }
+    /* Clean hover effects */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #22d3ee;
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    /* Card styling */
+    .service-card, .exp-card, .skill-card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 1rem;
+      transition: all 0.25s ease;
+    }
+    .service-card:hover, .exp-card:hover, .skill-card:hover {
+      border-color: #22d3ee;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(34, 211, 238, 0.15);
+    }
+    /* Badge styling */
+    .badge {
+      background: rgba(34, 211, 238, 0.1);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      color: #22d3ee;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #22d3ee, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-padding {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#0b0f17] text-slate-200 antialiased">
+
+  <!-- ===== HEADER - Clean & Minimal ===== -->
+  <header class="fixed w-full bg-[#0b0f17]/90 backdrop-blur-md border-b border-slate-800/50 z-50">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#home" class="text-xl font-bold text-white tracking-tight">
+        Rajesh<span class="text-cyan-400">.dev</span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#home" class="nav-link text-slate-300 hover:text-white">Home</a></li>
+        <li><a href="#about" class="nav-link text-slate-300 hover:text-white">About</a></li>
+        <li><a href="#services" class="nav-link text-slate-300 hover:text-white">Services</a></li>
+        <li><a href="#skills" class="nav-link text-slate-300 hover:text-white">Skills</a></li>
+        <li><a href="#experience" class="nav-link text-slate-300 hover:text-white">Experience</a></li>
+        <li><a href="#contact" class="nav-link text-slate-300 hover:text-white">Contact</a></li>
+      </ul>
+      
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <a href="#contact" class="px-5 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold rounded-lg transition shadow-lg shadow-cyan-500/20">
+          <i class="fas fa-paper-plane mr-2"></i>Let's Talk
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-400 hover:text-white text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#111827] border-t border-slate-800 px-6 py-5">
+      <ul class="flex flex-col space-y-4">
+        <li><a href="#home" class="block text-slate-300 hover:text-white py-2">Home</a></li>
+        <li><a href="#about" class="block text-slate-300 hover:text-white py-2">About</a></li>
+        <li><a href="#services" class="block text-slate-300 hover:text-white py-2">Services</a></li>
+        <li><a href="#skills" class="block text-slate-300 hover:text-white py-2">Skills</a></li>
+        <li><a href="#experience" class="block text-slate-300 hover:text-white py-2">Experience</a></li>
+        <li><a href="#contact" class="block text-slate-300 hover:text-white py-2">Contact</a></li>
+        <li class="pt-2"><a href="#contact" class="inline-block w-full px-5 py-3 bg-cyan-600 text-white text-center font-semibold rounded-lg">Start Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="pt-20">
+    
+    <!-- ===== HERO SECTION - SHORT, CLEAN, CLEAR ===== -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          
+          <!-- LEFT: Hero Content - Short & Clear -->
+          <div class="space-y-6">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 badge">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75 animate-ping"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              </span>
+              <span class="text-xs font-medium">Django Developer in Nepal</span>
+            </div>
+            
+            <!-- Headline - Clean & Bold -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Backend systems
+              <span class="block gradient-text mt-2">for growing</span>
+              <span class="block gradient-text">businesses.</span>
+            </h1>
+            
+            <!-- Description - Very clean, 2 lines -->
+            <p class="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
+              BSc (Hons) IT · 2+ years experience · Django, PostgreSQL, ERP
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="#contact" class="px-6 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-lg inline-flex items-center gap-2 shadow-lg shadow-cyan-500/25 transition">
+                <i class="fas fa-paper-plane"></i>
+                Hire Me
+              </a>
+              <a href="#services" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-lg inline-flex items-center gap-2 border border-slate-700 transition">
+                <i class="fas fa-code"></i>
+                Services
+              </a>
+            </div>
+            
+            <!-- Quick Stats - Minimal -->
+            <div class="flex items-center gap-6 pt-4">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-briefcase text-cyan-400 text-sm"></i>
+                </div>
+                <span class="text-sm text-slate-300">2+ years</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-code-branch text-cyan-400 text-sm"></i>
+                </div>
+                <span class="text-sm text-slate-300">15+ projects</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-map-pin text-cyan-400 text-sm"></i>
+                </div>
+                <span class="text-sm text-slate-300">Nepal</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- RIGHT: Profile Image - Clean Avatar -->
+          <div class="flex justify-center md:justify-end">
+            <div class="relative">
+              <div class="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-slate-800 bg-gradient-to-b from-slate-800 to-slate-900 shadow-2xl">
+                <img src="./rajesh.png" 
+                     alt="Rajesh Kumar Tharu - Django Developer Nepal" 
+                     class="w-full h-full object-cover opacity-90">
+              </div>
+              <!-- Availability Badge -->
+              <div class="absolute -bottom-3 -right-3 bg-slate-900 border border-slate-700 px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                <span class="relative flex h-2.5 w-2.5">
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span class="text-xs font-medium text-white">Available now</span>
+              </div>
+              <!-- Degree Badge -->
+              <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm border border-slate-700 px-3 py-1.5 rounded-full">
+                <span class="text-xs font-medium text-white flex items-center gap-1">
+                  <i class="fas fa-graduation-cap text-cyan-400"></i> BSc (Hons) IT
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="hidden md:flex justify-center mt-20">
+          <a href="#about" class="flex flex-col items-center gap-1 text-slate-500 hover:text-cyan-400 transition">
+            <span class="text-xs tracking-widest uppercase">Scroll</span>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== ABOUT SECTION - Detailed Professional Summary ===== -->
+    <section id="about" class="py-20 md:py-28 bg-slate-900/20 border-y border-slate-800/50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+          
+          <!-- Left: About Text -->
+          <div>
+            <div class="inline-flex items-center gap-2 badge mb-4">
+              <span class="text-xs">About Me</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+              I turn business challenges into <span class="gradient-text">scalable backend systems</span>
+            </h2>
+            
+            <div class="space-y-5 text-slate-300 leading-relaxed">
+              <p>
+                I'm <span class="text-white font-semibold">Rajesh Kumar Tharu</span>, a Software Developer with a 
+                <span class="text-cyan-400 font-medium">BSc (Hons) in Information Technology</span> from Techspire College, Nepal.
+              </p>
+              <p>
+                I specialize in <span class="text-white font-medium">Django backend development</span> and have spent over 
+                <span class="text-white font-medium">2 years</span> helping small businesses in Nepal digitize their operations. 
+                My expertise includes building custom ERP systems, business websites, and REST APIs that are secure, scalable, and maintainable.
+              </p>
+              <p>
+                I've worked with schools, retail shops, and construction companies to replace manual paperwork and spreadsheets 
+                with automated web-based systems. My approach is always <span class="text-white font-medium">business-first, code-second</span> — 
+                I take time to understand your workflow before writing a single line of code.
+              </p>
+            </div>
+            
+            <!-- Quick Facts -->
+            <div class="grid grid-cols-2 gap-4 mt-8">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-map-marker-alt text-cyan-400 text-sm"></i>
+                </div>
+                <span class="text-sm text-slate-300">Based in Nepal</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-clock text-cyan-400 text-sm"></i>
+                </div>
+                <span class="text-sm text-slate-300">Available now</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-globe text-cyan-400 text-sm"></i>
+                </div>
+                <span class="text-sm text-slate-300">Remote / On-site</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-bolt text-cyan-400 text-sm"></i>
+                </div>
+                <span class="text-sm text-slate-300">Django specialist</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right: Expertise Cards -->
+          <div class="space-y-5">
+            <div class="service-card p-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-cyan-900/30 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-cube text-xl text-cyan-400"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white mb-2">ERP System Development</h3>
+                  <p class="text-slate-400 text-sm">
+                    Complete operational systems for schools, retail stores, and construction companies. 
+                    Student/employee management, inventory tracking, fee collection, and reporting dashboards.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="service-card p-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-cyan-900/30 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-laptop-code text-xl text-cyan-400"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white mb-2">Custom Business Websites</h3>
+                  <p class="text-slate-400 text-sm">
+                    Responsive, SEO-optimized websites with Django admin panels. 
+                    Easy content management, contact forms, service showcases, and blog integration.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="service-card p-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-cyan-900/30 rounded-xl flex items-center justify-center">
+                  <i class="fas fa-plug text-xl text-cyan-400"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white mb-2">REST API & Backend</h3>
+                  <p class="text-slate-400 text-sm">
+                    Secure, documented APIs for mobile apps and third-party integrations. 
+                    JWT authentication, PostgreSQL optimization, and scalable architecture.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6 p-5 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-xl border border-cyan-800/30">
+              <p class="text-sm italic text-slate-300">
+                <i class="fas fa-quote-left text-cyan-400 mr-1"></i> 
+                I don't just deliver code — I deliver solutions that actually improve how your business runs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== SERVICES SECTION - Detailed Cards ===== -->
+    <section id="services" class="py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 badge mb-4">
+            <span class="text-xs">What I Offer</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Professional Services for <span class="gradient-text">Nepali Businesses</span>
+          </h2>
+          <p class="text-lg text-slate-400">
+            No templates. No page builders. Just clean, custom Django development.
+          </p>
+        </div>
+        
+        <!-- Services Grid - 2 Main Services + Additional -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-10">
+          
+          <!-- Service 1: Custom Business Website -->
+          <article class="service-card p-8">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-14 h-14 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-2xl flex items-center justify-center">
+                <i class="fas fa-laptop-code text-2xl text-cyan-400"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white">Custom Business Website</h3>
+                <span class="badge mt-1 inline-block">For retail, studios, real estate, service providers</span>
+              </div>
+            </div>
+            
+            <p class="text-slate-400 leading-relaxed mb-6">
+              A professional, responsive website that converts visitors into customers. Built with Django, 
+              you get a custom admin panel to update content yourself — no developer needed for simple changes.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Features</h4>
+                <ul class="space-y-2.5">
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>100% responsive design</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>SEO-friendly structure</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>Custom admin dashboard</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>Contact/booking forms</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Outcome</h4>
+                <ul class="space-y-2.5">
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-arrow-right text-cyan-400 text-xs mt-1"></i>
+                    <span>24/7 lead generation</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-arrow-right text-cyan-400 text-xs mt-1"></i>
+                    <span>Reduced phone inquiries</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-arrow-right text-cyan-400 text-xs mt-1"></i>
+                    <span>Own your code</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-5 flex justify-between items-center">
+              <span class="text-xs text-slate-500"><i class="fas fa-clock mr-1"></i> 2-3 weeks delivery</span>
+              <span class="font-bold text-white">Starting at NPR 25,000</span>
+            </div>
+          </article>
+          
+          <!-- Service 2: ERP System Development (Premium) -->
+          <article class="service-card p-8 border-cyan-800/50 relative overflow-hidden">
+            <!-- Premium Ribbon -->
+            <div class="absolute top-6 right-0 bg-gradient-to-l from-cyan-600 to-blue-600 text-white px-5 py-1.5 rounded-l-full shadow-lg">
+              <span class="text-xs font-bold flex items-center gap-1"><i class="fas fa-crown"></i> Premium Service</span>
+            </div>
+            
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-14 h-14 bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-2xl flex items-center justify-center">
+                <i class="fas fa-building text-2xl text-cyan-400"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-white">ERP System Development</h3>
+                <span class="badge mt-1 inline-block">For schools, construction, retail, institutes</span>
+              </div>
+            </div>
+            
+            <p class="text-slate-400 leading-relaxed mb-6">
+              A complete operational backbone. Replace spreadsheets and manual registers with an integrated 
+              platform that automates your entire workflow — from attendance to inventory to financial reporting.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Features</h4>
+                <ul class="space-y-2.5">
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>Role-based authentication</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>Student/employee management</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>Inventory/fee tracking</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-check-circle text-cyan-400 text-xs mt-1"></i>
+                    <span>Custom reporting dashboard</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Outcome</h4>
+                <ul class="space-y-2.5">
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-arrow-right text-cyan-400 text-xs mt-1"></i>
+                    <span>70% faster reporting</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-arrow-right text-cyan-400 text-xs mt-1"></i>
+                    <span>Zero manual errors</span>
+                  </li>
+                  <li class="flex items-start gap-2 text-slate-400 text-sm">
+                    <i class="fas fa-arrow-right text-cyan-400 text-xs mt-1"></i>
+                    <span>Real-time data access</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-5 flex justify-between items-center">
+              <span class="text-xs text-slate-500"><i class="fas fa-calendar mr-1"></i> 4-8 weeks</span>
+              <span class="font-bold text-white">Custom Quote</span>
+            </div>
+          </article>
+        </div>
+        
+        <!-- Additional Services Row -->
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+          <div class="service-card p-6">
+            <div class="w-10 h-10 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-link text-cyan-400"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">REST API Development</h4>
+            <p class="text-slate-400 text-sm">Django REST Framework, JWT auth, third-party integrations, API documentation.</p>
+          </div>
+          <div class="service-card p-6">
+            <div class="w-10 h-10 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-cart-shopping text-cyan-400"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">E-Commerce Backend</h4>
+            <p class="text-slate-400 text-sm">Product catalog, cart/checkout, order management, admin dashboard.</p>
+          </div>
+          <div class="service-card p-6">
+            <div class="w-10 h-10 bg-cyan-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-shield text-cyan-400"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">Maintenance & Support</h4>
+            <p class="text-slate-400 text-sm">Security updates, bug fixes, performance optimization, monthly plans.</p>
+          </div>
+        </div>
+        
+        <!-- CTA Banner -->
+        <div class="mt-16 bg-gradient-to-r from-slate-900 to-slate-800 border border-cyan-800/30 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Need a custom solution?</h4>
+            <p class="text-slate-400">Tell me about your business requirements — I'll provide a detailed project proposal within 48 hours.</p>
+          </div>
+          <a href="#contact" class="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg inline-flex items-center gap-3 shadow-lg shadow-cyan-500/30 whitespace-nowrap">
+            <i class="fas fa-comment-dots"></i>
+            Free Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== SKILLS SECTION - Categorized & Detailed ===== -->
+    <section id="skills" class="py-20 md:py-28 bg-slate-900/20 border-y border-slate-800/50">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 badge mb-4">
+            <span class="text-xs">Technical Expertise</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            My <span class="gradient-text">Development Toolkit</span>
+          </h2>
+          <p class="text-lg text-slate-400">
+            Modern, industry-standard technologies I use to build reliable systems.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Backend Skills -->
+          <div class="skill-card p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                <i class="fas fa-server text-cyan-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Backend</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Python</span>
+                <span class="text-xs text-cyan-400 font-mono">3+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Django</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">REST API</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Pytest</span>
+                <span class="text-xs text-cyan-400 font-mono">1+ year</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Frontend Skills -->
+          <div class="skill-card p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                <i class="fas fa-code text-cyan-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Frontend</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">HTML5/CSS3</span>
+                <span class="text-xs text-cyan-400 font-mono">3+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Tailwind CSS</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">JavaScript</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Database Skills -->
+          <div class="skill-card p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                <i class="fas fa-database text-cyan-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Database</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">PostgreSQL</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">SQLite</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Database Design</span>
+                <span class="text-xs text-cyan-400 font-mono">Advanced</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tools & Workflow -->
+          <div class="skill-card p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-cyan-900/30 rounded-lg flex items-center justify-center">
+                <i class="fas fa-tools text-cyan-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Tools</h3>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Git/GitHub</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Postman</span>
+                <span class="text-xs text-cyan-400 font-mono">2+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">VS Code</span>
+                <span class="text-xs text-cyan-400 font-mono">3+ years</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400 text-sm">Linux/CLI</span>
+                <span class="text-xs text-cyan-400 font-mono">Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== EXPERIENCE SECTION - Detailed Work History ===== -->
+    <section id="experience" class="py-20 md:py-28">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 badge mb-4">
+            <span class="text-xs">Work History</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Professional <span class="gradient-text">Experience</span>
+          </h2>
+          <p class="text-lg text-slate-400">
+            Hands-on development experience with Nepali tech companies.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          
+          <!-- Experience 1: Code Himalaya -->
+          <article class="exp-card p-7">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">Python Developer Intern</h3>
+                <p class="text-cyan-400 font-medium">Code Himalaya</p>
+                <p class="text-sm text-slate-500 mt-1">3 Months · 2024</p>
+              </div>
+              <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center">
+                <i class="fas fa-code text-cyan-400 text-xl"></i>
+              </div>
+            </div>
+            <ul class="space-y-3 text-slate-400 text-sm">
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Developed and maintained backend components using <span class="text-white">Python and Django</span> for client projects.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Built <span class="text-white">RESTful APIs</span> with Django REST Framework and integrated PostgreSQL databases.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Wrote unit tests with <span class="text-white">Pytest</span> and participated in code reviews.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Collaborated with frontend team to integrate backend APIs with responsive interfaces.</span>
+              </li>
+            </ul>
+          </article>
+          
+          <!-- Experience 2: Jay Bageshwari Computer -->
+          <article class="exp-card p-7">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-white">Web Developer Intern</h3>
+                <p class="text-cyan-400 font-medium">Jay Bageshwari Computer Pvt. Ltd.</p>
+                <p class="text-sm text-slate-500 mt-1">4 Months · 2023</p>
+              </div>
+              <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center">
+                <i class="fas fa-globe text-cyan-400 text-xl"></i>
+              </div>
+            </div>
+            <ul class="space-y-3 text-slate-400 text-sm">
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Built responsive web applications using <span class="text-white">HTML, Tailwind CSS, and JavaScript</span>.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Assisted in <span class="text-white">Django backend development</span> and PostgreSQL database connectivity.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Worked on <span class="text-white">ERP system modules</span> for small business clients.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5"></span>
+                <span>Participated in client meetings, requirement gathering, and deployment support.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+        
+        <!-- Education Summary -->
+        <div class="mt-12 max-w-5xl mx-auto">
+          <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-cyan-900/30 rounded-xl flex items-center justify-center">
+                <i class="fas fa-graduation-cap text-cyan-400 text-xl"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-white mb-1">BSc (Hons) in Information Technology</h4>
+                <p class="text-slate-400">Techspire College, Nepal · 2022–2026</p>
+                <p class="text-sm text-slate-500 mt-2">Coursework: Database Systems, Web Development, Software Engineering, Data Structures & Algorithms, Cybersecurity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===== CONTACT SECTION - Professional & Clean ===== -->
+    <section id="contact" class="py-20 md:py-28 bg-slate-900/20 border-y border-slate-800/50">
+      <div class="max-w-5xl mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 badge mb-4">
+            <span class="text-xs">Get In Touch</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to start your <span class="gradient-text">project?</span>
+          </h2>
+          <p class="text-lg text-slate-400">
+            I'm currently accepting new clients and collaboration opportunities.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-10">
+          
+          <!-- Contact Information -->
+          <address class="not-italic space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center">
+                <i class="fas fa-envelope text-cyan-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wider">Email</p>
+                <a href="mailto:rajeshkumartharu959@gmail.com" class="text-white font-medium hover:text-cyan-400 transition text-lg">
+                  rajeshkumartharu959@gmail.com
+                </a>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center">
+                <i class="fas fa-map-pin text-cyan-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wider">Location</p>
+                <p class="text-white font-medium text-lg">Nepal (Remote / On-site)</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center">
+                <i class="fas fa-clock text-cyan-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wider">Response Time</p>
+                <p class="text-white font-medium text-lg">Within 12 hours</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center">
+                <i class="fas fa-bolt text-cyan-400 text-xl"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wider">Availability</p>
+                <p class="text-white font-medium text-lg flex items-center gap-2">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                  </span>
+                  Available for work
+                </p>
+              </div>
+            </div>
+          </address>
+          
+          <!-- CTA Card -->
+          <div class="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-2xl border border-cyan-800/30">
+            <h3 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+              <i class="fas fa-handshake text-cyan-400"></i>
+              Free technical consultation
+            </h3>
+            <p class="text-slate-400 mb-6">
+              Tell me about your business needs — I'll outline a Django-based solution, estimated timeline, and pricing. No obligation, just honest advice.
+            </p>
+            
+            <div class="space-y-4">
+              <a href="mailto:rajeshkumartharu959@gmail.com" class="w-full px-6 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl inline-flex items-center justify-center gap-3 shadow-lg shadow-cyan-500/30 transition">
+                <i class="fas fa-paper-plane"></i>
+                Send a message
+              </a>
+              <p class="text-xs text-center text-slate-500">
+                or connect on 
+                <a href="#" class="text-slate-400 hover:text-cyan-400 mx-1"><i class="fab fa-github"></i> GitHub</a> · 
+                <a href="#" class="text-slate-400 hover:text-cyan-400 mx-1"><i class="fab fa-linkedin"></i> LinkedIn</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm text-slate-500">
+          © <span id="current-year"></span> Rajesh Kumar Tharu — BSc (Hons) IT
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="text-xs text-slate-600">Django Developer in Nepal</span>
+          <span class="text-xs text-slate-600">ERP System Specialist</span>
+          <span class="text-xs text-slate-600">Backend Consultant</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    
+    // Current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
